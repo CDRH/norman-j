@@ -36,9 +36,6 @@
 	(let [filename (.getName file)]
 		(= ".xml" (.substring filename (.lastIndexOf filename ".")))))
 
-(defn convert [stylesheet xml-file]
-  (let [xmlfile (sax/compile-xml xml-file)]
-    (stylesheet xmlfile)))
 
 (defn input-files [input-dir]
   "Read input file and do some basic sanity checking."
@@ -55,8 +52,11 @@
                                  #(has-xml-extension? %)]]
     (filter (fn [x] (every? #(% x) filters)) (file-seq (File. input-dir)))))
 
-(defn output-files [output-dir stylesheet]
+(defn convert [output-dir stylesheet]
     "Returns a function that runs the conversion and writes out the file"
+  (let [convert (fn [stylesheet xml-file]
+                  (let [xmlfile (sax-compile-xml xml-file)]
+                    (stylesheet xmlfile)))]
     ; Written as a clojure to keep the main convert-files function
     ; uncluttered.  
     (fn [x] (spit (str output-dir (.getName x)) (convert stylesheet x))))
@@ -66,8 +66,8 @@
                       stylesheet :stylesheet}]
   "Apply the conversion stylesheet to the input files."
     (let [stylesheet (sax/compile-xslt (slurp stylesheet))
-          output (output-files output-dir stylesheet)]
-        (doall (pmap output (input-files input-dir)))))
+          converter (convert output-dir stylesheet)]
+        (doall (pmap converter (input-files input-dir)))))
 
 (defn -main [& args]
   "Process command-line switches and call main conversion function"
