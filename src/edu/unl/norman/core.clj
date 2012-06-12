@@ -66,8 +66,10 @@
                       stylesheet :stylesheet}]
   "Apply the conversion stylesheet to the input files."
     (let [stylesheet (sax/compile-xslt (slurp stylesheet))
-          converter (converter output-dir stylesheet)]
-        (doall (pmap converter (input-files input-dir)))))
+          converter (converter output-dir stylesheet)
+          input (input-files input-dir)]
+        (doall (pmap converter input))))
+        ;(doall (pmap converter (input-files input-dir)))))
 
 (defn -main [& args]
   "Process command-line switches and call main conversion function"
