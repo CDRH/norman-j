@@ -7,7 +7,7 @@
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Mon Jun 11 11:08:26 CDT 2012
+;;; Last Modified: Wed Jun 13 14:48:25 CDT 2012
 ;;;
 ;;; Copyright © 2011-2012 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See LICENSE for details.
@@ -26,7 +26,7 @@
 (require '[clojure.tools.cli :as c]
 				 '[saxon :as sax])
 
-(def version "0.0.2")
+(def version "0.0.3")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
@@ -52,14 +52,15 @@
                                  #(has-xml-extension? %)]]
     (filter (fn [x] (every? #(% x) filters)) (file-seq (File. input-dir)))))
 
+(defn apply-master [stylesheet xml-file]
+  (let [xmlfile (sax/compile-xml xml-file)]
+    (stylesheet xmlfile)))
+
 (defn converter [output-dir stylesheet]
     "Returns a function that runs the conversion and writes out the file"
-  (let [convert (fn [stylesheet xml-file]
-                  (let [xmlfile (sax/compile-xml xml-file)]
-                    (stylesheet xmlfile)))]
     ; Written as a clojure to keep the main convert-files function
     ; uncluttered.  
-    (fn [x] (spit (str output-dir (.getName x)) (convert stylesheet x)))))
+    (fn [x] (spit (str output-dir (.getName x)) (apply-master stylesheet x))))
 
 (defn convert-files [{input-dir  :inputdir
                       output-dir :outputdir
