@@ -57,10 +57,8 @@
     (filter (fn [x] (every? #(% x) filters)) (file-seq (File. input-dir)))))
 
 (defn apply-master [stylesheet xml-file]
-  (let [xmlfile (sax/compile-xml (BufferedReader. (Files/newBufferedReader (Paths/get (.toURI xml-file)) (Charset/forName "UTF-8"))))]
-    (do (println xml-file)
-		(stylesheet xmlfile))))
-
+  (let [xmlfile (sax/compile-xml xml-file)]
+    (stylesheet xmlfile)))
 
 (defn converter [output-dir stylesheet]
     "Returns a function that runs the conversion and writes out the file"
@@ -75,8 +73,7 @@
     (let [stylesheet (sax/compile-xslt (slurp stylesheet))
           converter (converter output-dir stylesheet)
           input (input-files input-dir)]
-        (doall (map converter input))))
-        ;(doall (pmap converter (input-files input-dir)))))
+        (doall (map #(future (converter %)) input))))
 
 (defn -main [& args]
   "Process command-line switches and call main conversion function"
@@ -94,4 +91,5 @@
             (System/exit 0))
           (:help options) (do
             (println banner))
-          :else (convert-files options))))
+          :else (convert-files options))
+    (shutdown-agents)))
