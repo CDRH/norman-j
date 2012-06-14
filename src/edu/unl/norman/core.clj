@@ -20,12 +20,7 @@
 (ns edu.unl.norman.core
     (:use clojure.java.io)
   (import
-    (java.io File)
-		(java.io FileReader)
-		(java.nio.file Files)
-		(java.nio.file Paths)
-		(java.nio.charset Charset)
-		(java.io BufferedReader)) 
+    (java.io File))
         (:gen-class))
 
 (require '[clojure.tools.cli :as c]
