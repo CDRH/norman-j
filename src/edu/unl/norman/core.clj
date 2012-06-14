@@ -31,7 +31,7 @@
 (require '[clojure.tools.cli :as c]
 				 '[saxon :as sax])
 
-(def version "0.0.4")
+(def version "0.0.5")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
@@ -91,5 +91,4 @@
             (System/exit 0))
           (:help options) (do
             (println banner))
-          :else (convert-files options))
-    (shutdown-agents)))
+          :else (convert-files options))))
