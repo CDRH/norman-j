@@ -2,7 +2,7 @@
 Norman
 ======
 
-Version 0.0.1.
+Version 0.0.4.
 
 Norman is an XSLT processor (based on Saxon) that parallelizes across n processors.
 
