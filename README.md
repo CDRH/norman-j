@@ -28,25 +28,25 @@ A pre-compiled jar containing everything needed to run Norman is available here.
 
 You can run it with:
 
-  java -jar norman-X.X.X.jar -s \[your\_stylesheet\]
+	java -jar norman-X.X.X.jar -s \[your\_stylesheet\]
 
 By default, Norman looks for a `NORMAN\_HOME` environment variable containing a directory path, and will expect to find a directory labeled `input` (where your texts should reside) and `output` (where Norman will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
 
 Norman understands the following switches:
 
-  -s, --stylesheet \[your\_stylesheet\]
-  -i, --inputdir \[input directory path\]  
-  -o, --outputdir \[Output directory path\] 
-  -h, --help
-  -V, --version
+	-s, --stylesheet \[your\_stylesheet\]
+	-i, --inputdir \[input directory path\]  
+	-o, --outputdir \[Output directory path\] 
+	-h, --help
+	-V, --version
 
 Building Norman from Source
 ---------------------------
 
 Abbot is written almost entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.4) and the current copy of Leiningen, you should be able to type:
 
-  lein deps
-  lein uberjar
+	lein deps
+	lein uberjar
 
 That will generate a completely self-contained jar labeled norman-X.X.X-standalone.jar.  You can rename that as you please.
 
