@@ -24,7 +24,7 @@ If those two circumstances obtain, Norman might be just the thing.
 Downloading and Running Norman
 ------------------------------
 
-A pre-compiled jar containing everything needed to run Norman is available here.
+A pre-compiled jar containing everything needed to run Norman is available [here](https://github.com/CDRH/norman/downloads).
 
 You can run it with:
 
