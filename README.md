@@ -30,7 +30,7 @@ You can run it with:
 
 	java -jar norman-X.X.X.jar -s [your_stylesheet]
 
-By default, Norman looks for a `NORMAN\_HOME` environment variable containing a directory path, and will expect to find a directory labeled `input` (where your texts should reside) and `output` (where Norman will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
+By default, Norman looks for a `NORMAN_HOME` environment variable containing a directory path, and will expect to find a directory labeled `input` (where your texts should reside) and `output` (where Norman will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
 
 Norman understands the following switches:
 
