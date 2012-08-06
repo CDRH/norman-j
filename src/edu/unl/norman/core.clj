@@ -7,7 +7,7 @@
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Wed Jun 13 14:48:25 CDT 2012
+;;; Last Modified: Mon Aug 06 16:09:23 CDT 2012
 ;;;
 ;;; Copyright © 2011-2012 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See LICENSE for details.
@@ -18,15 +18,14 @@
 ;;; for more details.
 
 (ns edu.unl.norman.core
-    (:use clojure.java.io)
-  (import
-    (java.io File))
-        (:gen-class))
+  (:use clojure.java.io)
+  (:import (java.io File))
+  (:gen-class)
+	(:require [clojure.tools.cli :as c]
+				    [saxon :as sax]
+					  [clojure.java.io :as io]))
 
-(require '[clojure.tools.cli :as c]
-				 '[saxon :as sax])
-
-(def version "0.0.5")
+(def version "0.1.1")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
@@ -51,15 +50,17 @@
                                  #(has-xml-extension? %)]]
     (filter (fn [x] (every? #(% x) filters)) (file-seq (File. input-dir)))))
 
-(defn apply-master [stylesheet xml-file]
-  (let [xmlfile (sax/compile-xml xml-file)]
-    (stylesheet xmlfile)))
+(defn apply-stylesheet [stylesheet xml-file]
+"Apply stylesheet to individual XML file."
+  (with-open [rdr (io/reader xml-file)]
+	    (let [xml (sax/compile-xml rdr)] 
+			      (stylesheet xml))))
 
 (defn converter [output-dir stylesheet]
     "Returns a function that runs the conversion and writes out the file"
     ; Written as a clojure to keep the main convert-files function
     ; uncluttered.  
-    (fn [x] (spit (str output-dir (.getName x)) (apply-master stylesheet x))))
+    (fn [x] (spit (str output-dir (.getName x)) (apply-stylesheet stylesheet x))))
 
 (defn convert-files [{input-dir  :inputdir
                       output-dir :outputdir
