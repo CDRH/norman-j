@@ -7,9 +7,9 @@
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Mon Aug 06 16:09:23 CDT 2012
+;;; Last Modified: Mon Jan 14 10:06:45 CST 2013
 ;;;
-;;; Copyright © 2011-2012 Board of Regents of the University of Nebraska-
+;;; Copyright © 2012-2013 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See COPYING for details.
 ;;;
 ;;; Abbot is distributed in the hope that it will be useful, but
@@ -25,7 +25,7 @@
 				    [saxon :as sax]
 					  [clojure.java.io :as io]))
 
-(def version "0.1.1")
+(def version "0.1.2")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
@@ -66,10 +66,12 @@
                       output-dir :outputdir
                       stylesheet :stylesheet}]
   "Apply the conversion stylesheet to the input files."
+	(if stylesheet
     (let [stylesheet (sax/compile-xslt (slurp stylesheet))
           converter (converter output-dir stylesheet)
           input (input-files input-dir)]
-        (doall (map #(future (converter %)) input))))
+        (doall (map #(future (converter %)) input)))
+		(println "You must pass a stylesheet to norman with the -s switch.")))
 
 (defn -main [& args]
   "Process command-line switches and call main conversion function"
