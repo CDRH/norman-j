@@ -7,7 +7,7 @@
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Mon Jan 14 10:06:45 CST 2013
+;;; Last Modified: Fri Mar 01 16:16:25 CST 2013
 ;;;
 ;;; Copyright © 2012-2013 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See COPYING for details.
@@ -25,7 +25,7 @@
 				    [saxon :as sax]
 					  [clojure.java.io :as io]))
 
-(def version "0.1.2")
+(def version "0.1.3")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
