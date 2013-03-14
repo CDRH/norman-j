@@ -2,7 +2,7 @@
 Norman
 ======
 
-Version 0.1.3.
+Version 0.2.0.
 
 A warning from King Harold II . . .
 
@@ -15,7 +15,7 @@ Norman is an XSLT processor (built on top of Saxon) that parallelizes across _n_
 
 Norman is designed for large transformation tasks.  It is likely to be useful to you only under the following circumstances:
 
-1. You have at least hundreds, if not thousands of texts to process (at [CDRH](http://cdrh.unl.edu/), we have used it process collections exceeding 25,000 files).
+1. You have at least hundreds, if not thousands of texts to process (at [CDRH](http://cdrh.unl.edu/), we have used it to process collections exceeding 25,000 files).
 
 2. You can run Norman on multicore hardware.
 
@@ -32,11 +32,8 @@ You can run it with:
 
 By default, Norman looks for a `NORMAN_HOME` environment variable containing a directory path, and will expect to find directories beneath it labeled `input` (where your texts should reside) and `output` (where Norman will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
 
-Norman understands the following switches:
+Norman also takes the following switches:
 
-	-s, --stylesheet [your_stylesheet]
-	-i, --inputdir [input directory path]  
-	-o, --outputdir [Output directory path] 
 	-h, --help
 	-V, --version
 
@@ -45,16 +42,16 @@ The -s switch is mandatory.
 Building Norman from Source
 ---------------------------
 
-Norman is written almost entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.5) and the current copy of Leiningen (version 2), you should be able to type:
+Norman is written entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.5.1) and the current copy of Leiningen (version 2), you should be able to type:
 
 	lein deps
 	lein uberjar
 
-This will generate a completely self-contained jar labeled norman-X.X.X-standalone.jar in `$NORMAN_HOME/target`.  You can rename that as you please.
+This will generate a completely self-contained jar labeled norman-X.X.X.jar in `$NORMAN_HOME/target`.  You can rename that as you please.
 
 License, etc.
 -------------
 
-Written and maintained by Stephen Ramsay for the [Center for Digital Research in the Humanities](http://cdrh.unl.edu/) at the University of Nebraska-Lincoln.
+Norman is written and maintained by Stephen Ramsay for the [Center for Digital Research in the Humanities](http://cdrh.unl.edu/) at the University of Nebraska-Lincoln.
 
-Copyright © 2012-2013 Board of Regents of the University of Nebraska-Lincoln.  Norman may be freely distributed and/or modified subject to certain conditions.  It is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See LICENSE for more details.
+Copyright © 2012-2013 Board of Regents of the University of Nebraska-Lincoln.  Norman may be freely distributed and/or modified subject to certain conditions.  It is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See COPYING for more details.

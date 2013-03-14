@@ -7,7 +7,7 @@
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Fri Mar 01 16:16:25 CST 2013
+;;; Last Modified: Thu Mar 14 13:28:15 CDT 2013
 ;;;
 ;;; Copyright © 2012-2013 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See COPYING for details.
@@ -19,13 +19,14 @@
 
 (ns edu.unl.norman.core
   (:use clojure.java.io)
+  (:use [clojure.tools.logging :only (info error fatal)])
   (:import (java.io File))
   (:gen-class)
 	(:require [clojure.tools.cli :as c]
 				    [saxon :as sax]
 					  [clojure.java.io :as io]))
 
-(def version "0.1.3")
+(def version "0.2.0")
 
 (def norman-home (System/getenv "NORMAN_HOME"))
 
@@ -58,7 +59,7 @@
 
 (defn converter [output-dir stylesheet]
     "Returns a function that runs the conversion and writes out the file"
-    ; Written as a clojure to keep the main convert-files function
+    ; Written as a closure to keep the main convert-files function
     ; uncluttered.  
     (fn [x] (spit (str output-dir (.getName x)) (apply-stylesheet stylesheet x))))
 
@@ -67,26 +68,42 @@
                       stylesheet :stylesheet}]
   "Apply the conversion stylesheet to the input files."
 	(if stylesheet
-    (let [stylesheet (sax/compile-xslt (slurp stylesheet))
-          converter (converter output-dir stylesheet)
-          input (input-files input-dir)]
-        (doall (map #(future (converter %)) input)))
-		(println "You must pass a stylesheet to norman with the -s switch.")))
+    (if (and (.isDirectory (File. input-dir)) (.isDirectory (File. output-dir)))
+      (try
+        (info "Starting job")
+          (let [stylesheet (sax/compile-xslt (slurp stylesheet))
+                converter (converter output-dir stylesheet)
+                input (input-files input-dir)]
+            (doall (map #(future (converter %)) input)))
+        (catch Exception ex
+          (error ex "There was an error during file processing")))
+       (do
+         (println "No input/output directories specified (-h for details)")
+         (fatal "No input/output directories specified (-h for details)")))
+    (do
+      (fatal "No stylesheet provided")
+      (println "You must pass a stylesheet to norman with the -s switch."))))
 
 (defn -main [& args]
   "Process command-line switches and call main conversion function"
-  (let [opts (c/cli args
-    ["-s" "--stylesheet" "XSLT stylesheet" :default false] 
-    ["-i" "--inputdir" "Input directory path" :default (str norman-home "/input")]
-    ["-o" "--outputdir" "Output directory path" :default (str norman-home "/output/")]
-    ["-h" "--help" "This usage message" :flag true]
-    ["-V" "--version" "Show version number" :flag true])
-        options (first opts)
-        banner  (last opts)]
+  (if norman-home
+    (let [opts (c/cli args
+         ["-s" "--stylesheet" "XSLT stylesheet" :default false] 
+         ["-i" "--inputdir" "Input directory path" :default (str norman-home "/input")]
+         ["-o" "--outputdir" "Output directory path" :default (str norman-home "/output/")]
+         ["-h" "--help" "This usage message" :flag true]
+         ["-V" "--version" "Show version number" :flag true])
+         options (first opts)
+         banner  (last opts)]
         (cond
-          (:version options) (do
-            (println (format "Version %s", version))
-            (System/exit 0))
-          (:help options) (do
-            (println banner))
-          :else (convert-files options))))
+          (:version options)
+            (do
+              (println (format "Version %s", version))
+              (System/exit 0))
+          (:help options)
+            (println banner)
+          :else
+            (convert-files options)))
+    (do
+      (println "Please set NORMAN_HOME to the directory containing the abbot jarfile")
+      (fatal "NORMAN_HOME not set"))))
