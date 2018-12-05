@@ -24,7 +24,7 @@ If those two circumstances obtain, Norman might be just the thing.
 Building Norman from Source
 ---------------------------
 
-Norman is written entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.9.0) and the current copy of Leiningen (version 3), you should be able to type:
+Norman is written entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.9.0) and the current copy of Leiningen (version 2), you should be able to type:
 
 	lein deps
 	lein uberjar
