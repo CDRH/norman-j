@@ -2,11 +2,11 @@
 Norman
 ======
 
-Version 0.2.0.
+Version 1.0.0.
 
 A warning from King Harold II . . .
 
-*This is pre-release software.*  It may fail to compile.  It might have undocumented features.  It certainly has unimplemented features.  It definitely has bugs.  You have been warned.
+We have been using this software internally for years without incident.  That does not mean that it will work in your world.
 
 Description
 -----------
@@ -21,10 +21,18 @@ Norman is designed for large transformation tasks.  It is likely to be useful to
 
 If those two circumstances obtain, Norman might be just the thing.
 
-Downloading and Running Norman
-------------------------------
+Building Norman from Source
+---------------------------
 
-A pre-compiled jar containing everything needed to run Norman is available [here](http://abbot.unl.edu/downloads).
+Norman is written entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.9.0) and the current copy of Leiningen (version 3), you should be able to type:
+
+	lein deps
+	lein uberjar
+
+This will generate a completely self-contained jar labeled norman-X.X.X.jar in `$NORMAN_HOME/target`.  You can rename that as you please.
+
+Running Norman
+------------------------------
 
 You can run it with:
 
@@ -39,15 +47,6 @@ Norman also takes the following switches:
 
 The -s switch is mandatory.
 
-Building Norman from Source
----------------------------
-
-Norman is written entirely in [Clojure](http://clojure.org/) using the [Leiningen](http://leiningen.org/) build tool.  So assuming you have both Clojure (we're using version 1.5.1) and the current copy of Leiningen (version 2), you should be able to type:
-
-	lein deps
-	lein uberjar
-
-This will generate a completely self-contained jar labeled norman-X.X.X.jar in `$NORMAN_HOME/target`.  You can rename that as you please.
 
 License, etc.
 -------------
