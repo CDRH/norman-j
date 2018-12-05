@@ -105,5 +105,5 @@
           :else
             (convert-files options)))
     (do
-      (println "Please set NORMAN_HOME to the directory containing the abbot jarfile")
+      (println "Please set NORMAN_HOME to the directory containing the norman jarfile")
       (fatal "NORMAN_HOME not set"))))
