@@ -1,15 +1,15 @@
 
-;;; norman.clj 
+;;; norman-j.clj 
 ;;;
-;;; Norman: An XSLT processor (based on Saxon) that parallelizes across
+;;; Norman-J: An XSLT processor (based on Saxon) that parallelizes across
 ;;; n cores.
 ;;;
 ;;; Written and maintained by Stephen Ramsay for the Center for
 ;;; Digital Research in the Humanities at the University of Nebraska-Lincoln.
 ;;;
-;;; Last Modified: Thu Mar 14 13:28:15 CDT 2013
+;;; Last Modified: Tue Dec 18 14:14:02 CST 2018
 ;;;
-;;; Copyright © 2012-2013 Board of Regents of the University of Nebraska-
+;;; Copyright © 2012-2018 Board of Regents of the University of Nebraska-
 ;;; Lincoln (and others).  See COPYING for details.
 ;;;
 ;;; Abbot is distributed in the hope that it will be useful, but

@@ -1,5 +1,5 @@
 
-Norman
+Norman-J
 ======
 
 Version 1.0.0.
@@ -31,16 +31,16 @@ Norman is written entirely in [Clojure](http://clojure.org/) using the [Leininge
 
 This will generate a completely self-contained jar labeled norman-X.X.X.jar in `$NORMAN_HOME/target`.  You can rename that as you please.
 
-Running Norman
+Running Norman-J
 ------------------------------
 
 You can run it with:
 
 	java -jar norman-X.X.X.jar -s [your_stylesheet]
 
-By default, Norman looks for a `NORMAN_HOME` environment variable containing a directory path, and will expect to find directories beneath it labeled `input` (where your texts should reside) and `output` (where Norman will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
+By default, Norman-J looks for a `NORMAN_HOME` environment variable containing a directory path, and will expect to find directories beneath it labeled `input` (where your texts should reside) and `output` (where Norman-J will write the converted files).  You can set these manually by passing fully qualified paths to the `-i` and `-o` switches.
 
-Norman also takes the following switches:
+Norman-J also takes the following switches:
 
 	-h, --help
 	-V, --version
@@ -51,6 +51,6 @@ The -s switch is mandatory.
 License, etc.
 -------------
 
-Norman is written and maintained by Stephen Ramsay for the [Center for Digital Research in the Humanities](http://cdrh.unl.edu/) at the University of Nebraska-Lincoln.
+Norman-J is written and maintained by Stephen Ramsay for the [Center for Digital Research in the Humanities](http://cdrh.unl.edu/) at the University of Nebraska-Lincoln.
 
-Copyright © 2012-2013 Board of Regents of the University of Nebraska-Lincoln.  Norman may be freely distributed and/or modified subject to certain conditions.  It is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See COPYING for more details.
+Copyright © 2012-2018 Board of Regents of the University of Nebraska-Lincoln.  Norman may be freely distributed and/or modified subject to certain conditions.  It is made available in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See COPYING for more details.
