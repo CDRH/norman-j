@@ -1,133 +1,133 @@
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-08-06
+Stephen Ramsay <sramsay2@unl.edu>	2012-08-06
 
     Added some standard files.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-08-06
+Stephen Ramsay <sramsay2@unl.edu>	2012-08-06
 
     Re-wrote IO routine to close files properly (I hope).
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-08-06
+Stephen Ramsay <sramsay2@unl.edu>	2012-08-06
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-07-31
+Stephen Ramsay <sramsay2@unl.edu>	2012-07-31
 
     Minor correction.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Added download link.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     ...
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     ...
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Reformatting.
 
 Merge: 473d051 dc50220
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Merge branch 'master' of github.com:CDRH/norman
     
     Conflicts:
 README.md           
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Full-fledged README.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-25
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-25
 
     Minor adjustment.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Version bump.
 
 Merge: 3590da3 7de778b
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Merge branch 'master' of github.com:CDRH/norman
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Removed nio classes.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     futures without shutdown agents (for testing).
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Massive rewrite of parallization routine.  Experimenting with
     shutdown-agents.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Trying to fix a memory leak with buffered, non-blocking IO.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-14
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-14
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-13
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-13
 
     Last-ditch effort to prevent heap overflow.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-13
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-13
 
     Version bump.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-12
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-12
 
     Peformance tweak on main function.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-11
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-11
 
     Some basic refactoring.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-11
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-11
 
     Some refactoring of function names.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     testing
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     testing
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     Added practice stylesheet.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     Initial commit.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     Initial commit.
 
-Stephen Ramsay <sramsay.unl@gmail.com>	2012-06-05
+Stephen Ramsay <sramsay2@unl.edu>	2012-06-05
 
     Initial commit
